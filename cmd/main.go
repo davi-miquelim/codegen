@@ -1,22 +1,21 @@
 package main
 
 import (
-	"fmt"
+	"codegen/parser"
 	"flag"
+	"fmt"
+	"strings"
 )
 
 func main() {
 	newProjectPtr := flag.String("new-project", "example", "scaffold a new codegen backend")
-	genPtr := flag.String("gen", "post title:string content:string likes:uint dislikes:uint*",
-	`
+	modPtr := flag.String("gen", "post title:string content:string likes:uint dislikes:uint*",
+		`
 	generate a new API module by defining the module name it's fields and datatypes
 
 	example:
 	post title:string content:string likes:uint dislikes:uint* user:user
 	`)
 
-	flag.Parse()
-
-	fmt.Println("new project: ", *newProjectPtr)
-	fmt.Println("generate: ", *genPtr)
+	mod := parser.CreateModule(*modPtr)
 }
