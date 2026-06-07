@@ -1,3 +1,3 @@
-module davi-miquelim/codegen
+module codegen
 
 go 1.26.3

@@ -4,7 +4,6 @@ import (
 	"codegen/parser"
 	"flag"
 	"fmt"
-	"strings"
 )
 
 func main() {
@@ -17,5 +16,8 @@ func main() {
 	post title:string content:string likes:uint dislikes:uint* user:user
 	`)
 
-	mod := parser.CreateModule(*modPtr)
+	flag.Parse()
+
+	fmt.Println(*newProjectPtr)
+	parser.GenCode(*modPtr)
 }
