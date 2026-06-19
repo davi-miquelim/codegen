@@ -84,6 +84,8 @@ func GenCode(modStr string) string {
 	mod.Name = base.Capitalize(mod.Name)
 	baseDecl := NewStruct(mod)
 
+	upsertDecl := CreateUpserStruct(mod)
+
 	fileAST := &ast.File{
 		Name:  &ast.Ident{Name: lowerName},
 		Decls: []ast.Decl{baseDecl},
